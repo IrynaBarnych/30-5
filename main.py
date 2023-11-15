@@ -1,47 +1,54 @@
-#конспект
-#множинне успадкування
-class A:
-    def say_hello(self):
-        print("Hello from class A")
-class B(A):
-    def say_hello(self):
-        print("Hello from class B")
-class C(A):
-    def say_hello(self):
-        print("Hello from class C")
-class D(C, B):
-    def say_hello(self):
-        super().say_hello()
-        A().say_hello()
-obj1 = A()
-obj1.say_hello()
-obj = D()
-obj.say_hello()
-print(D.mro())
-print(D.__mro__)
+class DomesticAnimal:
+    def __init__(self, name, type_of_animal):
+        self.name = name
+        self.type_of_animal = type_of_animal
 
-#ex1
-class C:
-    def __init__(self):
-        print('c')
+    def sound(self):
+        pass
+    def show(self):
+        print(f"Ім'я {self.name}")
+    def type(self):
+        pass
+class Dog(DomesticAnimal):
+    def sound(self):
+        print("Woof!")
 
+    def show(self):
+        super().show()
 
-class A:
-    def __init__(self):
-        print('a')
+    def type(self):
+        print(f"Тип тварини {self.type_of_animal}")
 
+class Cat(DomesticAnimal):
+    def sound(self):
+        print("Meow!")
 
-class B(A):
-    def __init__(self):
-        super().__init__()
-        print('b')
+    def show(self):
+        super().show()
 
+    def type(self):
+        print(f"Тип тварини {self.type_of_animal}")
 
-class D(B, A):
-    def __init__(self):
-        super().__init__()
-        # A.__init__(self)
-        print('d')
+class Parrot(DomesticAnimal):
+    def sound(self):
+        print("Ку-ка-рі-ку")
 
+    def show(self):
+        super().show()
 
-obj = D()
+    def type(self):
+        print(f"Тип тварини {self.type_of_animal}")
+
+class Hamster(DomesticAnimal):
+    def sound(self):
+        print("звуки гризуна")
+
+    def show(self):
+        super().show()
+
+    def type(self):
+        print(f"Тип тварини {self.type_of_animal}")
+dog = Dog("Rey", "dog")
+dog.sound()
+dog.show()
+dog.type()
