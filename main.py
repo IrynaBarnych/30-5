@@ -10,7 +10,9 @@ class C(A):
     def say_hello(self):
         print("Hello from class C")
 class D(C, B):
-    pass
+    def say_hello(self):
+        super().say_hello()
+        A().say_hello()
 obj1 = A()
 obj1.say_hello()
 obj = D()
