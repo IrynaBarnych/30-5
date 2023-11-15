@@ -1,54 +1,20 @@
-class DomesticAnimal:
-    def __init__(self, name, type_of_animal):
-        self.name = name
-        self.type_of_animal = type_of_animal
+class Wheels:
+    def __init__(self, count):
+        self.count = count
 
-    def sound(self):
-        pass
-    def show(self):
-        print(f"Ім'я {self.name}")
-    def type(self):
-        pass
-class Dog(DomesticAnimal):
-    def sound(self):
-        print("Woof!")
+class Engine:
+    def __init__(self, power):
+        self.power = power
 
-    def show(self):
-        super().show()
+class Doors:
+    def __init__(self, open = False):
+        self.open = open
 
-    def type(self):
-        print(f"Тип тварини {self.type_of_animal}")
+class Car(Wheels, Engine, Doors):
+    def __init__(self, count, power, open):
+        Wheels.__init__(self, count)
+        Engine.__init__(self, power)
+        Doors.__init__(self, open)
 
-class Cat(DomesticAnimal):
-    def sound(self):
-        print("Meow!")
-
-    def show(self):
-        super().show()
-
-    def type(self):
-        print(f"Тип тварини {self.type_of_animal}")
-
-class Parrot(DomesticAnimal):
-    def sound(self):
-        print("Ку-ка-рі-ку")
-
-    def show(self):
-        super().show()
-
-    def type(self):
-        print(f"Тип тварини {self.type_of_animal}")
-
-class Hamster(DomesticAnimal):
-    def sound(self):
-        print("звуки гризуна")
-
-    def show(self):
-        super().show()
-
-    def type(self):
-        print(f"Тип тварини {self.type_of_animal}")
-dog = Dog("Rey", "dog")
-dog.sound()
-dog.show()
-dog.type()
+car = Car(4,150, True)
+print(car.__dict__)
